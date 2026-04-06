@@ -25,11 +25,12 @@ export default function QuotesPage() {
     }
   })
 
-  const onSubmit = async (data: QuoteFormData) => {
+  const onSubmit = async (formData: QuoteFormData) => {
     setSubmitting(true)
     try {
       // In a real app, you'd create a quote record in Supabase
       // For now, simulate API call
+      console.log('Quote submitted:', formData);
       await new Promise(resolve => setTimeout(resolve, 1000))
       toast({
         title: 'Quote submitted',

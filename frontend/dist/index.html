@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stephenbiz - 专业外贸电商B2B解决方案</title>
+    <meta name="description" content="基于AI自动化的24小时无人值守外贸电商平台，专业B2B促销礼品和定制合作礼品">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8fafc;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部 */
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: #1e40af;
+        }
+        
+        /* 英雄区域 */
+        .hero {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #2563eb;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        /* 产品区域 */
+        .products {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .product-card h3 {
+            color: #1f2937;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .product-card p {
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+        
+        .product-price {
+            color: #2563eb;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+        
+        /* 询盘表单 */
+        .inquiry {
+            padding: 4rem 0;
+            background: #f3f4f6;
+        }
+        
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #4b5563;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        
+        .submit-button {
+            width: 100%;
+            background: #2563eb;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        /* 页脚 */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">stephen<span>biz</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero">
+        <div class="container">
+            <h1>专业跨境电商B2B解决方案</h1>
+            <p>基于AI自动化的24小时无人值守外贸电商平台，为您提供定制促销礼品和合作礼品的一站式服务。</p>
+            <a href="#inquiry" class="cta-button">立即询盘</a>
+        </div>
+    </section>
+
+    <!-- 产品区域 -->
+    <section class="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>热门产品</h2>
+                <p>高品质定制促销礼品和合作礼品</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <h3>定制水杯</h3>
+                    <p>高品质不锈钢/塑料水杯，支持logo印刷，多种尺寸可选</p>
+                    <div class="product-price">$3.50 - $8.00</div>
+                    <p><strong>MOQ:</strong> 500个</p>
+                    <p><strong>交期:</strong> 15-30天</p>
+                </div>
+                <div class="product-card">
+                    <h3>促销袋</h3>
+                    <p>环保材料购物袋，无纺布/帆布材质，多种颜色可选</p>
+                    <div class="product-price">$1.20 - $5.00</div>
+                    <p><strong>MOQ:</strong> 1000个</p>
+                    <p><strong>交期:</strong> 20-35天</p>
+                </div>
+                <div class="product-card">
+                    <h3>企业礼品</h3>
+                    <p>U盘、笔记本、笔等定制礼品套装，高端包装</p>
+                    <div class="product-price">$5.00 - $25.00</div>
+                    <p><strong>MOQ:</strong> 300个</p>
+                    <p><strong>交期:</strong> 10-25天</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 询盘表单 -->
+    <section class="inquiry" id="inquiry">
+        <div class="container">
+            <div class="form-container">
+                <h2 style="text-align: center; margin-bottom: 2rem; color: #1f2937;">产品询盘</h2>
+                <form id="inquiryForm">
+                    <div class="form-group">
+                        <label for="name">姓名 *</label>
+                        <input type="text" id="name" placeholder="请输入您的姓名" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">邮箱 *</label>
+                        <input type="email" id="email" placeholder="请输入您的邮箱" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">公司名称</label>
+                        <input type="text" id="company" placeholder="请输入公司名称">
+                    </div>
+                    <div class="form-group">
+                        <label for="product">感兴趣的产品</label>
+                        <input type="text" id="product" placeholder="例如：定制水杯、促销袋等">
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">预计数量</label>
+                        <input type="number" id="quantity" placeholder="例如：1000">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">详细需求</label>
+                        <textarea id="message" rows="4" placeholder="请描述您的具体需求..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">提交询盘</button>
+                </form>
+                <div id="successMessage" style="display:none; color: green; text-align: center; margin-top: 1rem;">
+                    <p>✅ 提交成功！我们将在24小时内联系您。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>stephenbiz - 专业跨境电商B2B解决方案</p>
+            <p>© 2026 stephenbiz. 保留所有权利。</p>
+            <p style="margin-top: 1rem; color: #9ca3af;">邮箱: stephen.hua@popsourcing.com</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('inquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 显示成功消息
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // 重置表单
+            e.target.reset();
+            
+            // 5秒后隐藏成功消息
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+            
+            // 这里可以添加API调用，将数据发送到后端
+            console.log('询盘提交成功');
+        });
+    </script>
+</body>
+</html>
