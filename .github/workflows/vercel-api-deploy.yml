@@ -30,8 +30,11 @@ jobs:
       - name: 登录Vercel（使用Token）
         run: |
           if [ -n "${{ secrets.VERCEL_TOKEN }}" ]; then
-            echo "${{ secrets.VERCEL_TOKEN }}" | vercel login --token
-            echo "✅ Vercel登录成功"
+            # 正确的方式：设置环境变量
+            export VERCEL_TOKEN="${{ secrets.VERCEL_TOKEN }}"
+            echo "✅ Vercel Token已设置"
+            # 验证Token
+            npx vercel whoami --token "$VERCEL_TOKEN" 2>/dev/null && echo "✅ Vercel Token验证成功" || echo "⚠️  Token验证失败"
           else
             echo "⚠️  Vercel Token未配置，使用公开部署"
           fi
@@ -62,12 +65,14 @@ jobs:
         run: |
           echo "开始Vercel部署..."
           
-          # 尝试使用Token部署
+          # 设置环境变量
           if [ -n "${{ secrets.VERCEL_TOKEN }}" ]; then
-            DEPLOY_OUTPUT=$(vercel --token "${{ secrets.VERCEL_TOKEN }}" --prod --yes 2>&1 || true)
+            export VERCEL_TOKEN="${{ secrets.VERCEL_TOKEN }}"
+            echo "使用Vercel Token部署"
+            DEPLOY_OUTPUT=$(npx vercel --prod --yes --token "$VERCEL_TOKEN" 2>&1 || true)
           else
-            # 公开部署（无需Token）
-            DEPLOY_OUTPUT=$(vercel --prod --yes 2>&1 || true)
+            echo "使用公开部署"
+            DEPLOY_OUTPUT=$(npx vercel --prod --yes 2>&1 || true)
           fi
           
           echo "部署输出:"
@@ -78,6 +83,8 @@ jobs:
             DEPLOY_URL=$(echo "$DEPLOY_OUTPUT" | grep -o "https://[^ ]*\.vercel\.app" | head -1)
             echo "DEPLOY_URL=$DEPLOY_URL" >> $GITHUB_ENV
             echo "✅ 部署URL: $DEPLOY_URL"
+          else
+            echo "⚠️  未找到部署URL，检查输出"
           fi
       
       - name: 使用curl直接调用Vercel API
