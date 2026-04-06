@@ -34,3 +34,75 @@ AI代理: OpenClaw (本地智能自动化)
 **成本分析**: 💰 完全免费
 **业务价值**: 🚀 革命性外贸电商自动化
 **品牌标识**: 🎯 stephenbiz - 专业可信赖
+
+## 🛠️ 开发设置
+
+### 前置要求
+- Node.js 18+ 和 npm
+- Supabase 账户 (免费层)
+- Vercel 账户 (免费层)
+- GitHub 账户
+
+### 本地开发
+1. 克隆仓库:
+   ```bash
+   git clone https://github.com/StephenAHua/stephenbiz.git
+   cd stephenbiz
+   ```
+2. 安装前端依赖:
+   ```bash
+   cd frontend
+   npm install
+   ```
+3. 配置环境变量:
+   ```bash
+   cp .env.example .env.local
+   # 编辑 .env.local 填入你的 Supabase 项目 URL 和匿名密钥
+   ```
+4. 运行开发服务器:
+   ```bash
+   npm run dev
+   ```
+5. 打开浏览器访问 http://localhost:3000
+
+### 数据库设置
+1. 在 Supabase 控制台创建新项目
+2. 运行 SQL 迁移脚本:
+   ```sql
+   -- 复制 supabase/migrations/202504062239_initial_tables.sql 内容到 SQL 编辑器执行
+   ```
+3. 启用身份认证和存储桶 (可选)
+
+### 部署到 Vercel
+1. 将仓库连接到 Vercel
+2. 设置环境变量: `VITE_SUPABASE_URL` 和 `VITE_SUPABASE_ANON_KEY`
+3. 自动部署在每次推送到 main 分支时触发
+
+### 自动化 CI/CD
+GitHub Actions 工作流已配置，在推送到 main 分支时自动运行测试并部署到 Vercel。
+
+## 📁 项目结构
+```
+stephenbiz/
+├── frontend/           # React 前端应用
+│   ├── src/
+│   │   ├── pages/     # 页面组件
+│   │   ├── lib/       # 工具库 (Supabase 客户端)
+│   │   └── ...
+│   ├── public/
+│   ├── package.json
+│   └── vercel.json    # Vercel 配置
+├── supabase/
+│   └── migrations/    # 数据库迁移脚本
+├── .github/workflows/ # GitHub Actions
+└── README.md
+```
+
+## 🔧 技术栈详情
+- **前端**: React 18, TypeScript, Vite, Chakra UI, React Hook Form, Zod
+- **后端**: Supabase (PostgreSQL, Auth, Storage)
+- **部署**: Vercel (静态托管), GitHub Actions (CI/CD)
+- **监控**: Vercel Analytics, Supabase Logs
+
+## 📄 许可证
+本项目仅供演示目的。商业使用请联系作者。
