@@ -21,6 +21,8 @@ jobs:
           vercel-org-id: vT8zdL19RMwlWYfRQvUOqRgP
           vercel-project-name: stephenbiz
           vercel-args: '--prod'
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       
       - name: 输出部署信息
         run: |
