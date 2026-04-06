@@ -1,0 +1,36 @@
+# 环境变量
+.env
+.env.local
+*.env
+
+# 日志文件
+*.log
+npm-debug.log*
+
+# 运行时数据
+.DS_Store
+*.pid
+*.seed
+
+# 配置文件
+config.local.json
+secrets/
+
+# 备份文件
+*.backup
+*.bak
+
+# 临时文件
+*.tmp
+*.temp
+tmp/
+temp/
+
+# IDE文件
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 系统文件
+Thumbs.db
