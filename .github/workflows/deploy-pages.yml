@@ -1,0 +1,49 @@
+name: 部署到GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+      
+      - name: 设置Pages
+        uses: actions/configure-pages@v4
+      
+      - name: 上传构建产物
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      
+      - name: 部署到GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+      
+      - name: 输出部署信息
+        run: |
+          echo "🚀 部署完成！"
+          echo "网站地址: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+          echo "自定义域名: https://stephenbiz.github.io"
+          echo "部署时间: $(date)"
+          echo ""
+          echo "✅ stephenbiz 外贸电商系统已上线"
+          echo "📊 基于24小时测试验证"
+          echo "💰 完全免费运行 (GitHub Pages)"
+          echo "🤖 24小时无人值守"

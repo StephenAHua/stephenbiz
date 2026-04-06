@@ -1,0 +1,36 @@
+{
+  "version": 2,
+  "name": "stephenbiz",
+  "builds": [
+    {
+      "src": "frontend/index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "instant-access.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/frontend/index.html"
+    },
+    {
+      "src": "/instant",
+      "dest": "/instant-access.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/index.html"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production",
+    "PROJECT_NAME": "stephenbiz",
+    "GITHUB_REPO": "https://github.com/StephenAHua/stephenbiz",
+    "DEPLOYMENT_TIME": "$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+  },
+  "regions": ["iad1"],
+  "public": true
+}

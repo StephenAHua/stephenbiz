@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "name": "stephenbiz",
+  "builds": [
+    {
+      "src": "frontend/index.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/index.html"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production",
+    "PROJECT_NAME": "stephenbiz"
+  }
+}
