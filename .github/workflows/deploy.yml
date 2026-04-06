@@ -1,36 +1,3 @@
-name: stephenbiz 部署
-
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    name: 部署到Vercel
-    
-    steps:
-      - name: 检出代码
-        uses: actions/checkout@v4
-      
-      - name: 部署到Vercel
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: vT8zdL19RMwlWYfRQvUOqRgP
-          vercel-project-name: stephenbiz
-          vercel-args: '--prod'
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      
-      - name: 输出部署信息
-        run: |
-          echo "🚀 部署完成！"
-          echo "网站地址: https://stephenbiz.vercel.app"
-          echo "部署时间: $(date)"
-          echo ""
-          echo "✅ stephenbiz 外贸电商系统已上线"
-          echo "📊 基于24小时测试验证"
-          echo "💰 完全免费运行"
-          echo "🤖 24小时无人值守"
+# 此工作流已禁用，使用GitHub Pages部署
+# name: stephenbiz 部署 (已禁用)
+# 请使用 .github/workflows/deploy-pages.yml 进行GitHub Pages部署
